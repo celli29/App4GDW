@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App4GDW"
+             x:Class="App4GDW.MainPage"
+             Title="App for GDW Main">
+
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill">
+
+            <StackLayout
+                HorizontalOptions="Fill"
+                VerticalOptions="Start"
+                Orientation="Vertical">
+
+                <Button x:Name="buttonScoreInput"
+                        Text="Score Input" />
+                <Button x:Name="buttonHoleMap"
+                        Text="Hole Map" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>
+
