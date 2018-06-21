@@ -4,16 +4,19 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace App4GDW
 {
 	public partial class App : Application
 	{
+        public static DatabaseManager DatabaseManager { get; private set; }
 		public App ()
 		{
 			InitializeComponent();
 
-			MainPage = new App4GDW.MainPage();
+            DatabaseManager = new DatabaseManager(new RestService());
+            MainPage = new NavigationPage(new MainPage());
 		}
 
 		protected override void OnStart ()

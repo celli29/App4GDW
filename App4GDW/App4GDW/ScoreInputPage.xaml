@@ -1,7 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
              x:Class="App4GDW.ScoreInputPage"
              Title="App for GDW - Score Input">
     <ContentPage.Content>
@@ -9,14 +8,24 @@
             HorizontalOptions="Fill"
             VerticalOptions="Fill">
             <Grid.RowDefinitions>
-                <RowDefinition Height="4*" />
-                <RowDefinition Height="6*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="8*" />
+                <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
-            <ScrollView Grid.Row="0"
+            <Label x:Name="labelHeader"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="3"
+                   Text="Hole #1 Par 4 Header Distance"
+                   FontSize="Medium"/>
+
+            <ScrollView Grid.Row="1"
+                        Grid.ColumnSpan="3"
                         Orientation="Vertical">
 
-                <Grid>
+                <Grid
+                    HorizontalOptions="CenterAndExpand"
+                     VerticalOptions="CenterAndExpand">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
@@ -37,183 +46,128 @@
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="8*" />
+                        <ColumnDefinition Width="2*" />
                     </Grid.ColumnDefinitions>
 
-                    <Label Text="MapType"
-                           VerticalOptions="Center"
+
+                    <Label x:Name="labelScore"
                            Grid.Row="0"
-                           Grid.Column="0" />
-                    <Picker x:Name="pickerMapType"
-                            VerticalOptions="Center"
-                            Title="MapType"
-                            Grid.Row="0"
-                            Grid.Column="1" />
-
-                    <Label Text="MyLocationEnabled"
-                           VerticalOptions="Center"
+                           Grid.Column="0"
+                           FontSize="Large"
+                           BackgroundColor="Silver"
+                           Text="   Score" />
+                    <Label x:Name="labelAltScore"
                            Grid.Row="1"
-                           Grid.Column="0" />
-                    <Switch x:Name="switchMyLocationEnabled"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Start"
-                            Grid.Row="1"
-                            Grid.Column="1" />
-
-                    <Label Text="UiSettings.MyLocationButtonEnabled"
-                           VerticalOptions="Center"
+                           Grid.Column="0"
+                           FontSize="Large"
+                           Text="   Alt. Score" />
+                    <Label x:Name="labelPutt"
                            Grid.Row="2"
-                           Grid.Column="0" />
-                    <Switch x:Name="switchMyLocationButtonEnabled"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Start"
-                            Grid.Row="2"
-                            Grid.Column="1" />
-
-                    <Label Text="Handle MyLocationButton"
-                           VerticalOptions="Center"
+                           Grid.Column="0"
+                           FontSize="Large"
+                           BackgroundColor="Silver"
+                           Text="   Putt" />
+                    <Label x:Name="labelFairway"
                            Grid.Row="3"
-                           Grid.Column="0" />
-                    <Switch x:Name="switchHandleMyLocationButton"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Start"
-                            Grid.Row="3"
-                            Grid.Column="1" />
-
-                    <Label Text="UiSettings.ScrollGesturesEnabled"
-                           VerticalOptions="Center"
+                           Grid.Column="0"
+                           FontSize="Large"
+                           Text="   Fairway" />
+                    <Label x:Name="labelGir"
                            Grid.Row="4"
-                           Grid.Column="0" />
-                    <Switch x:Name="switchScrollGesturesEnabled"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Start"
-                            Grid.Row="4"
-                            Grid.Column="1" />
-
-                    <Label Text="UiSettings.ZoomGesturesEnabled"
-                           VerticalOptions="Center"
+                           Grid.Column="0"
+                           BackgroundColor="Silver"
+                           FontSize="Large"
+                           Text="   GIR" />
+                    <Label x:Name="labelPitch"
                            Grid.Row="5"
-                           Grid.Column="0" />
-                    <Switch x:Name="switchZoomGesturesEnabled"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Start"
-                            Grid.Row="5"
-                            Grid.Column="1" />
-
-                    <Label Text="UiSettings.ZoomControlsEnabled"
-                           VerticalOptions="Center"
+                           Grid.Column="0"
+                           FontSize="Large"
+                           Text="   Pitch" />
+                    <Label x:Name="labelChip"
                            Grid.Row="6"
-                           Grid.Column="0" />
-                    <Switch x:Name="switchZoomControlsEnabled"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Start"
-                            Grid.Row="6"
-                            Grid.Column="1" />
-
-                    <Label Text="UiSettings.RotateGesturesEnabled"
-                           VerticalOptions="Center"
+                           Grid.Column="0"
+                           BackgroundColor="Silver"
+                           FontSize="Large"
+                           Text="   Chip" />
+                    <Label x:Name="labelGSBunker"
                            Grid.Row="7"
-                           Grid.Column="0" />
-                    <Switch x:Name="switchRotateGesturesEnabled"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Start"
-                            Grid.Row="7"
-                            Grid.Column="1" />
-
-                    <Label Text="UiSettings.CompassEnabled"
-                           VerticalOptions="Center"
+                           Grid.Column="0"
+                           FontSize="Large"
+                           Text="   GS Bunker" />
+                    <Label x:Name="labelPenalty"
                            Grid.Row="8"
-                           Grid.Column="0" />
-                    <Switch x:Name="switchCompassEnabled"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Start"
-                            Grid.Row="8"
-                            Grid.Column="1" />
+                           Grid.Column="0"
+                           BackgroundColor="Silver"
+                           FontSize="Large"
+                           Text="   Penalty" />
 
-                    <Label Text="UiSettings.TiltGesturesEnabled"
-                           VerticalOptions="Center"
-                           Grid.Row="9"
-                           Grid.Column="0" />
-                    <Switch x:Name="switchTiltGesturesEnabled"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Start"
-                            Grid.Row="9"
-                            Grid.Column="1" />
-
-                    <Label Text="IsIndoorEnabled"
-                           VerticalOptions="Center"
-                           Grid.Row="10"
-                           Grid.Column="0" />
-                    <Switch x:Name="switchIndoorEnabled"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Start"
-                            Grid.Row="10"
-                            Grid.Column="1" />
-
-                    <Label Text="UiSettings.IndoorLevelPickerEnabled"
-                           VerticalOptions="Center"
-                           Grid.Row="11"
-                           Grid.Column="0" />
-                    <Switch x:Name="switchIndoorLevelPickerEnabled"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Start"
-                            Grid.Row="11"
-                            Grid.Column="1" />
-
-                    <Label Text="IsTrafficEnabled"
-                           VerticalOptions="Center"
-                           Grid.Row="12"
-                           Grid.Column="0" />
-                    <Switch x:Name="switchIsTrafficEnabled"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Start"
-                            Grid.Row="12"
-                            Grid.Column="1" />
 
                     <Entry
-                        x:Name="entryAddress"
+                        x:Name="entryScore"
                         VerticalOptions="Center"
-                        Text="new york"
-                        Grid.Row="13"
-                        Grid.Column="0" />
-                    <Button
-                        x:Name="buttonGeocode"
-                        VerticalOptions="Center"
-                        Text="GEOCODE"
-                        Grid.Row="13"
+                        Text=""
+                        Grid.Row="0"
                         Grid.Column="1" />
-
-                    <Label x:Name="labelStatus"
-                           Grid.Row="14"
-                           Grid.Column="0"
-                           Grid.ColumnSpan="2" />
-
-                    <Image x:Name="imageSnapshot"
-                           Margin="5"
-                           Grid.Row="15"
-                           Grid.Column="0"
-                           Grid.ColumnSpan="2" />
-                    <Button x:Name="buttonTakeSnapshot"
-                            VerticalOptions="Center"
-                            Text="Take Snapshot"
-                            Grid.Row="15"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="2" />
+                    <Entry
+                        x:Name="entryAltScore"
+                        VerticalOptions="Center"
+                        Text=""
+                        Grid.Row="1"
+                        Grid.Column="1" />
+                   <Entry
+                        x:Name="entryPutt"
+                        VerticalOptions="Center"
+                        Text=""
+                        Grid.Row="2"
+                        Grid.Column="1" />
+                    <Entry
+                        x:Name="entryFairway"
+                        VerticalOptions="Center"
+                        Text=""
+                        Grid.Row="3"
+                        Grid.Column="1" />
+                    <Entry
+                        x:Name="entryGir"
+                        VerticalOptions="Center"
+                        Text=""
+                        Grid.Row="4"
+                        Grid.Column="1" />
+                    <Entry
+                        x:Name="entryPitch"
+                        VerticalOptions="Center"
+                        Text=""
+                        Grid.Row="5"
+                        Grid.Column="1" />
+                    <Entry
+                        x:Name="entryChip"
+                        VerticalOptions="Center"
+                        Text=""
+                        Grid.Row="6"
+                        Grid.Column="1" />
+                    <Entry
+                        x:Name="entryGSBunker"
+                        VerticalOptions="Center"
+                        Text=""
+                        Grid.Row="7"
+                        Grid.Column="1" />
+                    <Entry
+                        x:Name="entryPenalty"
+                        VerticalOptions="Center"
+                        Text=""
+                        Grid.Row="8"
+                        Grid.Column="1" />
+                    
 
                 </Grid>
             </ScrollView>
 
-            <!--
-            Initial CameraUpdate
-              Location = Sao Paulo
-              Zoom = 13
-              Rotation = 30
-              Tilt = 60
-            -->
-            <maps:Map Grid.Row="1" x:Name="map"
-                      InitialCameraUpdate="-23.68, -46.87, 13, 30, 60"
-                      VerticalOptions="FillAndExpand" />
+            <Button x:Name="buttonPrev" Text="Prev Hole" Grid.Row="2" Grid.Column="0" />
+            <Button x:Name="buttonHole1" Text="Refresh" Grid.Row="2" Grid.Column="1"/>
+            <Button x:Name="buttonMap" Text="Map View" Grid.Row="2" Grid.Column="2"/>
+            <Button x:Name="buttonNext" Text="Next Hole" Grid.Row="2" Grid.Column="3" />
+
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>

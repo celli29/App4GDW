@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             x:Class="App4GDW.TestPage"
+             Title="App for GDW - Hole Map">
+    <ContentPage.Content>
+        <Grid
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="6*" />
+            </Grid.RowDefinitions>
+
+            <ScrollView Grid.Row="0"
+                        Orientation="Vertical">
+
+                <!--<StackLayout Orientation="Vertical">-->
+
+                <Grid
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="15" />
+                        <RowDefinition Height="15" />
+                        <RowDefinition Height="15" />
+                        <RowDefinition Height="15" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+
+                    <Label Text="MapType"
+                           VerticalOptions="Center"
+                           Grid.Row="0"
+                           Grid.Column="0"/>
+                    <Picker x:Name="pickerMapType"
+                            VerticalOptions="Center"
+                            Title="MapType" 
+                            Grid.Row="0"
+                            Grid.Column="1"/>
+
+                    <Button x:Name="buttonKyleTest1CameraPosition" Text="Kyle Test 1" Grid.Row="1"/>
+                    <Button x:Name="buttonKyleTest2CameraPosition" Text="Kyle Test 2" Grid.Row="2"/>
+                    <Button x:Name="buttonKyleTest3CameraPosition" Text="Kyle Test 3" Grid.Row="3"/>
+                    <Button x:Name="buttonKyleTest4CameraPosition" Text="Kyle Test 4" Grid.Row="4"/>
+                    <Button x:Name="buttonHole1" Text="Hole # 1" Grid.Row="5"/>
+                    <Button x:Name="buttonHole2" Text="Hole # 2" Grid.Row="6"/>
+                    <Label Text="Zoom Level" Grid.Row="7" Grid.Column="0"/>
+                    <Slider x:Name="sliderZoom" Minimum="0" Scale="1" Maximum="22" Grid.Row="7" Grid.Column="1"/>
+
+                    </Grid>
+                    
+
+                <!--</StackLayout>-->
+            </ScrollView>
+
+            <Label Grid.Row="1" x:Name="labelStatus" />
+             <Label Grid.Row="2" x:Name="holeDistance" />
+
+            <maps:Map Grid.Row="3" x:Name="map"
+                      VerticalOptions="FillAndExpand" />
+
+                      <!--InitialCameraUpdate="32.875360, -97.085832,13,0,0"-->
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
