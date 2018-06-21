@@ -83,6 +83,15 @@ namespace App4GDW
             // now to get coordinates information
             Coords = await App.DatabaseManager.GetCoordinatesTasksAsync(_gcid);
 
+            // save coordinates into local database
+            double[] arrLat = Coords.Where(c => c.Theme == "CenterLat").FirstOrDefault().TransposeCoordinates();
+            double[] arrLon = Coords.Where(c => c.Theme == "CenterLon").FirstOrDefault().TransposeCoordinates();
+
+            for (int i = 0; i < 18; i++)
+            {
+                await App.LocalDB.SaveCoordAsync(new LocalCoordinates() { Hole = i + 1, CenterLat = arrLat[i], CenterLon = arrLon[i] });
+            }
+                
 
             teePicker.ItemsSource = newItems;
         }
@@ -96,6 +105,16 @@ namespace App4GDW
             string[] temp = TeeName.Split(':');
 
             teeCommonInfoes = await App.DatabaseManager.GetTeeInfoTasksAsync(_gcid, temp[0].Trim(), temp[1].Trim());
+
+            // save teecommoninfoes into local database
+            int[] arrPar = teeCommonInfoes.Where(t => t.Theme == "Par").FirstOrDefault().TransposeTeeInfoes();
+            int[] arrHandicap = teeCommonInfoes.Where(t => t.Theme == "Handicap").FirstOrDefault().TransposeTeeInfoes();
+            int[] arrDistance = teeCommonInfoes.Where(t => t.Theme == "Distance").FirstOrDefault().TransposeTeeInfoes();
+
+            for (int i = 0; i < 18; i++)
+            {
+                await App.LocalDB.SaveLocalTeeInfoAsync(new LocalTeeInfo() { Hole = i + 1, Par = arrPar[i], Handicap = arrHandicap[i], Distance = arrDistance[i] });
+            }
 
         }
 	}

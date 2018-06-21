@@ -65,6 +65,39 @@ namespace App4GDW
             return arr;
         }
 
+        public static double[] TransposeScoreCard(this ScoreCard sc)
+        {
+            double[] arr = new double[18];
+
+            if (sc == null)
+            {
+                return arr;
+            }
+
+            arr[0] = sc.H01 ?? 0;
+            arr[1] = sc.H02 ?? 0;
+            arr[2] = sc.H03 ?? 0;
+            arr[3] = sc.H04 ?? 0;
+            arr[4] = sc.H05 ?? 0;
+            arr[5] = sc.H06 ?? 0;
+
+            arr[6] = sc.H07 ?? 0;
+            arr[7] = sc.H08 ?? 0;
+            arr[8] = sc.H09 ?? 0;
+            arr[9] = sc.H10 ?? 0;
+            arr[10] = sc.H11 ?? 0;
+            arr[11] = sc.H12 ?? 0;
+
+            arr[12] = sc.H13 ?? 0;
+            arr[13] = sc.H14 ?? 0;
+            arr[14] = sc.H15 ?? 0;
+            arr[15] = sc.H16 ?? 0;
+            arr[16] = sc.H17 ?? 0;
+            arr[17] = sc.H18 ?? 0;
+
+            return arr;
+        }
+
         public static int[] TransposeTeeInfoes(this TeeCommonInfoes tci)
         {
             int[] arr = new int[18];
